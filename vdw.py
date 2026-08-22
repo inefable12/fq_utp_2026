@@ -25,7 +25,7 @@ try:
 except FileNotFoundError:
     pass
 
-st.sidebar.markdown("## 👽 Dr. Jesus Alvarado")
+st.sidebar.markdown("## 👨🏻‍🔬 Dr. Jesus Alvarado")
 
 st.title("🧪 Estimación de Constantes de Van der Waals ($a$ y $b$)")
 #st.write("Dr. Jesus Alvarado")
