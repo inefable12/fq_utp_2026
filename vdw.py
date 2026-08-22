@@ -12,7 +12,23 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] {
+        background-color: #0040FF;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+try:
+    st.sidebar.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjBweHdhMjJ5MTd0OGszNWswbTJtYXppb2xhdnloaGU2cWpoczRtbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZcWr9HfbSQP0T5zH7i/giphy.gif", width=400)
+except FileNotFoundError:
+    pass
+
+st.sidebar.markdown("## 👽 Dr. Jesus Alvarado")
+
 st.title("🧪 Estimación de Constantes de Van der Waals ($a$ y $b$)")
+#st.write("Dr. Jesus Alvarado")
 st.markdown("""
 Esta aplicación permite calcular los parámetros de **Van der Waals** para un gas o mezcla de gases recolectados 
 sobre agua mediante desplazamiento en probeta invertida (reacción $\\text{NaHCO}_3 + \\text{CH}_3\\text{COOH}$).
