@@ -112,6 +112,44 @@ col_res3.metric(
 )
 
 # ==========================================
+# CONVERSIÓN AL SISTEMA INTERNACIONAL (SI)
+# ==========================================
+st.markdown("---")
+with st.expander("🌐 Conversión al Sistema Internacional (SI)", expanded=False):
+    # Factores de conversión exactos:
+    # 1 atm = 101325 Pa (N/m²)
+    # 1 L = 1e-3 m³  =>  1 L² = 1e-6 m⁶
+    # a_SI = a * 101325 * 1e-6 = a * 0.101325  (Pa·m⁶/mol²)
+    # b_SI = b * 1e-3                           (m³/mol)
+    
+    col_btn, col_info = st.columns([1, 3])
+    with col_btn:
+        mostrar_si = st.toggle("Mostrar en Unidades SI (Pa, m³, J)")
+
+    if mostrar_si:
+        a_si = a_calculado * 0.101325
+        b_si = b_calculado * 1.0e-3
+        
+        col_si1, col_si2 = st.columns(2)
+        col_si1.metric(
+            label="Parámetro 'a' en el SI",
+            value=f"{a_si:.4e} Pa·m⁶/mol²",
+            help="Equivalente a J·m³/mol²"
+        )
+        col_si2.metric(
+            label="Parámetro 'b' en el SI",
+            value=f"{b_si:.4e} m³/mol",
+            help="Volumen molar excluido en metros cúbicos"
+        )
+        
+        st.caption("""
+        **Factores de equivalencia aplicados:**
+        - $1\\text{ atm} = 101\\,325\\text{ Pa}$
+        - $1\\text{ L}^2\\cdot\\text{atm}/\\text{mol}^2 = 0.101325\\text{ Pa}\\cdot\\text{m}^6/\\text{mol}^2 = 0.101325\\text{ J}\\cdot\\text{m}^3/\\text{mol}^2$
+        - $1\\text{ L/mol} = 1.0\\times 10^{-3}\\text{ m}^3/\\text{mol}$
+        """)
+
+# ==========================================
 # VISUALIZACIÓN GRÁFICA
 # ==========================================
 st.markdown("---")
